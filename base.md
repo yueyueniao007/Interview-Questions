@@ -36,6 +36,32 @@
 - 流量分析
 	
 	-通过统计工具(百度统计，CNZZ)分析流量来源，指导下一步的SEO
+	
+- content方面
+	
+	- 减少HTTP请求：合并文件、CSS精灵、inline Image
+	- 减少DNS查询：DNS缓存、将资源分布到恰当数量的主机名
+	- 减少DOM元素数量
+
+- Server方面
+	
+	- 使用CDN
+	- 配置ETag	
+	- 对组件使用Gzip压缩
+
+- Javascript方面
+	
+	- 将脚本放到页面底部
+	- 将javascript和css从外部引入
+	- 压缩javascript和css
+	- 删除不需要的脚本
+	- 减少DOM访问
+
+- 图片方面
+	
+	- 优化图片：根据实际颜色需要选择色深、压缩
+	- 优化css精灵
+	- 不要在HTML中拉伸图片
 
 ## 3.http状态码有那些？分别代表是什么意思？
 ```
@@ -82,3 +108,17 @@
     - 服务器交给后台处理完成后返回数据，浏览器接收文件（HTML、JS、CSS、图象等）；
     - 浏览器对加载到的资源（HTML、JS、CSS等）进行语法解析，建立相应的内部数据结构（如HTML的DOM）；
     - 载入解析到的资源文件，渲染页面，完成。
+
+## 5.常见排序算法的时间复杂度,空间复杂度
+![排序算法比较](img/sort-compare.png)
+
+## 6.web 开发中会话跟踪的方法有哪些
+- cookie
+- session
+- url 重写
+- 隐藏 input
+- ip 地址
+
+## 7.`<img>`的`title`和`alt`有什么区别
+- `title`是[global attributes](http://www.w3.org/TR/html-markup/global-attributes.html#common.attrs.core)之一，用于为元素提供附加的 advisory information。通常当鼠标滑动到元素上的时候显示。
+- `alt`是`<img>`的特有属性，是图片内容的等价描述，用于图片无法加载时显示、读屏器阅读图片。可提图片高可访问性，除了纯装饰图片外都必须设置有意义的值，搜索引擎会重点分析。
