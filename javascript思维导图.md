@@ -38,3 +38,9 @@
 ## 9.JavaScript正则表达式
 
 ![](img/JavaScript正则表达式.gif)
+
+## 10.面试总结
+
+![](img/面试.png)
+
+
