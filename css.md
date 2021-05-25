@@ -1,2 +1,7 @@
-css css
-docsify serve docs
+
+## 1. css sprite是什么，有什么优缺点？
+**概念：**将多个小图片拼接到一个图片中。通过background-position和元素尺寸调节需要显示的背景图案
+
+**优点：**
+
+- 减少http请求数，极大的提高页面加载速度
