@@ -64,3 +64,96 @@
 - 非替换行内元素的行框高由`line-height`确定，替换行内元素的行框高由`height`,`margin`,`padding`,`border`决定
 - 浮动或绝对定位时会替换为`block`
 - `vertical-align`无效
+
+## 6.`display`,`float`,`position`的关系
+
+- 如果`dsiplay`为`none`,那么`position`和`float`都不起作用，这种情况下元素不产生框
+- 否则，如果`position`值为`absolute`或者`fixed`,框就是决定定位的，`float`的计算值为`none`,`display`根据下面的表格调整
+- 否则，如果`float`不是`none`，框是浮动的，`display`根据下表进行调整
+- 否则，如果元素是根元素，`display`根据下边进行调整
+- 其它情况下`display`的值为指定值。总结起来：绝对定位，浮动，根元素都需要调整`display`
+
+![](img/display.png)
+
+## 7.PNG,GIF,JPG 的区别及如何选
+
+**GIF**:
+
+- 8 位像素，256 色
+- 无损压缩
+- 支持简单动画
+- 支持 boolean 透明
+- 适合简单动画
+
+**JPEG**：
+
+- 颜色限于 256
+- 有损压缩
+- 可控制压缩质量
+- 不支持透明
+- 适合照片
+
+**PNG**：
+
+- 有 PNG8 和 truecolor PNG
+- PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无动画
+- 适合图标、背景、按钮
+
+## 8.css有哪些异步属性
+
+- 关于文字排版的属性如：
+  - [font](https://developer.mozilla.org/en-US/docs/Web/CSS/font)
+  - [word-break](https://developer.mozilla.org/en-US/docs/Web/CSS/word-break)
+  - [letter-spacing](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing)
+  - [text-align](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align)
+  - [text-rendering](https://developer.mozilla.org/en-US/docs/Web/CSS/text-rendering)
+  - [word-spacing](https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing)
+  - [white-space](https://developer.mozilla.org/en-US/docs/Web/CSS/white-space)
+  - [text-indent](https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent)
+  - [text-transform](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform)
+  - [text-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow)
+- [line-height](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height)
+- [color](https://developer.mozilla.org/en-US/docs/Web/CSS/color)
+- [visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility)
+- [cursor](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor)
+
+## 9.介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？
+
+- 盒子模型构成：内容(content)、内填充(padding)、 边框(border)、外边距(margin)
+- IE8及其以下版本浏览器，未声明 DOCTYPE，内容宽高会包含内填充和边框，称为怪异盒模型(IE盒模型)
+- 标准(W3C)盒模型：元素宽度 = width + padding + border + margin
+- 怪异(IE)盒模型：元素宽度 = width + margin
+- 标准浏览器通过设置 css3 的 box-sizing: border-box 属性，触发“怪异模式”解析计算宽高
+
+## 10.box-sizing 常用的属性有哪些？分别有什么作用？
+
+- box-sizing: content-box;  // 默认的标准(W3C)盒模型元素效果
+- box-sizing: border-box;   // 触发怪异(IE)盒模型元素的效果
+- box-sizing: inherit;      //  继承父元素 box-sizing 属性的值
+
+## 11.如何创建块级格式化上下文(block formatting context),BFC 有什么用？
+
+**创建规则：**
+- 根元素
+- 浮动元素（`float`不为`none`）
+- 绝对定位元素（`position`取值为`absolute`或`fixed`）
+- `display`取值为`inline-block`,`table-cell`, `table-caption`,`flex`, `inline-flex`之一的元素
+- `overflow`不是`visible`的元素
+
+**作用：**
+
+- 可以包含浮动元素
+- 不被浮动元素覆盖
+- 阻止父子元素的 margin 折叠
+
+## 12.css选择器有哪些？
+
+- id选择器        #id
+- 类选择器        .class
+- 标签选择器      div, h1, p
+- 相邻选择器      h1 + p
+- 子选择器        ul > li
+- 后代选择器      li a
+- 通配符选择器    *
+- 属性选择器      a[rel='external']
+- 伪类选择器      a:hover, li:nth-child
