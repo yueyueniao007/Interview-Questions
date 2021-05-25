@@ -157,3 +157,8 @@
 - 通配符选择器    *
 - 属性选择器      a[rel='external']
 - 伪类选择器      a:hover, li:nth-child
+
+## 13.CSS哪些属性可以继承？哪些属性不可以继承？
+
+- 可以继承的样式：font-size、font-family、color、list-style、cursor
+- 不可继承的样式：width、height、border、padding、margin、background
