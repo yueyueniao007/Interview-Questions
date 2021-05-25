@@ -127,11 +127,15 @@
 
 ## 10.box-sizing 常用的属性有哪些？分别有什么作用？
 
-- box-sizing: content-box;  // 默认的标准(W3C)盒模型元素效果
-- box-sizing: border-box;   // 触发怪异(IE)盒模型元素的效果
-- box-sizing: inherit;      //  继承父元素 box-sizing 属性的值
+- `box-sizing: content-box;`  // 默认的标准(W3C)盒模型元素效果
+- `box-sizing: border-box;`   // 触发怪异(IE)盒模型元素的效果
+- `box-sizing: inherit;`      //  继承父元素 box-sizing 属性的值
 
 ## 11.如何创建块级格式化上下文(block formatting context),BFC 有什么用？
+
+- 一个页面是由很多个 Box 组成的,元素的类型和 display 属性,决定了这个 Box 的类型
+- 不同类型的 Box,会参与不同的 Formatting Context（决定如何渲染文档的容器）,因此Box内的元素会以不同的方式渲染,也就是说BFC内部的元素和外部的元素不会互相影响
+- BFC 也就是常说的块格式化上下文，这是一个独立的渲染区域，规定了内部如何布局， 并且这个区域的子元素不会影响到外面的元素，其中比较重要的布局规则有内部 box 垂 直放置，计算 BFC 的高度的时候，浮动元素也参与计算，触发 BFC 的规则有根元素， 浮动元素，position 为 absolute 或 fixed 的元素，display 为 inline-block，table-cell， table-caption，flex，inline-flex，overflow 不为 visible 的元素
 
 **创建规则：**
 - 根元素
@@ -206,3 +210,223 @@
 - ::selection     选择被用户选取的元素部分
 - :first-line     选择元素中的第一行
 - :first-letter   选择元素中的第一个字符
+
+## 16.css3有哪些新特性？
+
+- 新增选择器     p:nth-child(n){color: rgba(255, 0, 0, 0.75)}
+- 弹性盒模型     display: flex;
+- 多列布局       column-count: 5;
+- 媒体查询       @media (max-width: 480px) {.box: {column-count: 1;}}
+- 个性化字体     @font-face{font-family: BorderWeb; src:url(BORDERW0.eot);}
+- 颜色透明度     color: rgba(255, 0, 0, 0.75);
+- 圆角           border-radius: 5px;
+- 渐变           background:linear-gradient(red, green, blue);
+- 阴影           box-shadow:3px 3px 3px rgba(0, 64, 128, 0.3);
+- 倒影           box-reflect: below 2px;
+- 文字装饰       text-stroke-color: red;
+- 文字溢出       text-overflow:ellipsis;
+- 背景效果       background-size: 100px 100px;
+- 边框效果       border-image:url(bt_blue.png) 0 10;
+- 转换
+  - 旋转          transform: rotate(20deg);
+  - 倾斜          transform: skew(150deg, -10deg);
+  - 位移          transform: translate(20px, 20px);
+  - 缩放          transform: scale(.5);
+- 平滑过渡       transition: all .3s ease-in .1s;
+- 动画           @keyframes anim-1 {50% {border-radius: 50%;}} animation: anim-1 1s;
+
+## 17.position的值relative和absolute定位原点是？
+
+- `absolute`
+    - 生成绝对定位的元素，相对于值不为 static的第一个父元素进行定位。
+- `fixed` （老IE不支持）
+    - 生成绝对定位的元素，相对于浏览器窗口进行定位。
+- `relative`
+    - 生成相对定位的元素，相对于其正常位置进行定位。
+- `static`
+    - 默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right - z-index 声明）。
+- `inherit`
+    - 规定从父元素继承 position 属性的值
+
+## 18.用纯CSS创建一个三角形的原理是什么？
+
+```
+// 把上、左、右三条边隐藏掉（颜色设为 transparent）
+#demo {
+  width: 0;
+  height: 0;
+  border-width: 20px;
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+}
+```
+
+## 19.行内元素float:left后是否变为块级元素？
+
+> 行内元素设置成浮动之后变得更加像是`inline-block`（行内块级元素，设置成这个属性的元素会同时拥有行内和块级的特性，最明显的不同是它的默认宽度不是`100%`），这时候给行内元素设置`padding-top`和`padding-bottom`或者`width`、`height`都是有效果的
+
+## 20.为什么要初始化CSS样式?
+
+- 因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异
+
+## 21.谈谈浮动和清除浮动?
+
+- 浮动的框可以向左或向右移动，直到他的外边缘碰到包含框或另一个浮动框的边框为止。由于浮动框不在文档的普通流中，所以文档的普通流的块框表现得就像浮动框不存在一样。浮动的块框会漂浮在文档普通流的块框上
+
+- 方法一：使用带 clear 属性的空元素 在浮动元素后使用一个空元素如`<div class="clear"></div>`，并在 CSS 中赋 予.clear{clear:both;}属性即可清理浮动。亦可使用`<br class="clear"/>`或`<hr class="clear"/>`来进行清理。
+- 方法二：使用 CSS 的 overflow 属性 给浮动元素的容器添加 overflow:hidden;或 overflow:auto;可以清除浮动，另外在 IE6 中还 需要触发 hasLayout ，例如为父元素设置容器宽高或设置 zoom:1。 在添加 overflow 属性后，浮动元素又回到了容器层，把容器高度撑起，达到了清理浮动 的效果。
+- 方法三：给浮动的元素的容器添加浮动 给浮动元素的容器也添加上浮动属性即可清除内部浮动，但是这样会使其整体浮动，影 响布局，不推荐使用。
+- 方法四：使用邻接元素处理 什么都不做，给浮动元素后面的元素添加 clear 属性。
+- 方法五：使用 CSS 的:after 伪元素 结合:after 伪元素（注意这不是伪类，而是伪元素，代表一个元素之后最近的元素）和 IEhack ，可以完美兼容当前主流的各大浏览器，这里的 IEhack 指的是触发 hasLayout。 给浮动元素的容器添加一个 clearfix 的 class，然后给这个 class 添加一个:after 伪元素实 现元素末尾添加一个看不见的块元素（Block element）清理浮动。
+
+[参考](https://www.cnblogs.com/ForEvErNoME/p/3383539.html)
+
+## 22.li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？
+
+- li排列受到中间空白(回车/空格)等的影响，因为空白也属于字符，会被应用样式占据空间，产生间隔
+- 解决办法：在ul设置设置font-size=0,在li上设置需要的文字大小
+
+## 23.如何实现图片在某个容器中居中的？
+
+- 父元素固定宽高，利用定位及设置子元素 margin 值为自身的一半。
+- 父元素固定宽高，子元素设置`position:absolute;margin:auto;` 平均分配 margin
+- css3 属性 transform。子元素设置 `position:absolute; left:50%;top:50%;transform:translate(-50%,-50%);`即可。
+- 将父元素设置成 `display:table;` 子元素设置为单元格 `display:table-cell;`
+- 弹性布局 `display:flex;`设置 `align-items:center;justify-content:center;`
+
+## 24.如何实现元素的垂直居中？
+
+- 父元素 `display:flex;align-items:center;`
+- 元素绝对定位，`top:50%;margin-top:-（高度/2）;`
+- 高度不确定用 `transform:translateY（-50%）`
+- 父元素 table 布局，子元素设置 `vertical-align:center;`
+
+## 25.display:table 和本身的 table 有什么区别?
+
+- `Display:table` 和本身 table 是相对应的，区别在于，`display:table` 的 css 声明能够让一个 html 元素和它的子节点像 table 元素一样，使用基于表格的 css 布局，是我们能够轻松定义一个单元格的边界，背景等样式，而不会产生因为使用了 table 那样的制表标签导致的语义化问题。
+- 之所以现在逐渐淘汰了 table 系表格元素，是因为用 div+css 编写出来的文件比用 table 边写出来的文件小，而且 table 必须在页面完全加载后才显示，div 则是逐行显示，table 的嵌套性太多，没有 div 简洁
+
+## 26.CSS在性能优化方面的实践
+
+- `css`压缩与合并、`Gzip`压缩
+- `css`文件放在`head`里、不要用`@import`
+- 尽量用缩写、避免用滤镜、合理使用选择器
+
+## 27.几种常见的CSS布局
+
+### 流体布局
+
+```
+.left {
+	float: left;
+	width: 100px;
+	height: 200px;
+	background: red;
+}
+.right {
+	float: right;
+	width: 200px;
+	height: 200px;
+	background: blue;
+}
+.main {
+	margin-left: 120px;
+	margin-right: 220px;
+	height: 200px;
+	background: green;
+}
+
+<div class="container">
+	<div class="left"></div>
+	<div class="right"></div>
+	<div class="main"></div>
+</div>
+```
+
+### 圣杯布局
+
+- 要求：三列布局；中间主体内容前置，且宽度自适应；两边内容定宽
+	- 好处：重要的内容放在文档流前面可以优先渲染
+	- 原理：利用相对定位、浮动、负边距布局，而不添加额外标签
+
+```
+.container {
+	padding-left: 150px;
+	padding-right: 190px;
+}
+.main {
+	float: left;
+	width: 100%;
+}
+.left {
+	float: left;
+	width: 190px;
+	margin-left: -100%;
+	position: relative;
+	left: -150px;
+}
+.right {
+	float: left;
+	width: 190px;
+	margin-left: -190px;
+	position: relative;
+	right: -190px;
+}
+
+<div class="container">
+	<div class="main"></div>
+	<div class="left"></div>
+	<div class="right"></div>
+</div>
+```
+
+### 双飞翼布局
+
+- 双飞翼布局：对圣杯布局（使用相对定位，对以后布局有局限性）的改进，消除相对定位布局
+- 原理：主体元素上设置左右边距，预留两翼位置。左右两栏使用浮动和负边距归位，消除相对定位。
+
+```
+.container {
+	/*padding-left:150px;*/
+	/*padding-right:190px;*/
+}
+.main-wrap {
+	width: 100%;
+	float: left;
+}
+.main {
+	margin-left: 150px;
+	margin-right: 190px;
+}
+.left {
+	float: left;
+	width: 150px;
+	margin-left: -100%;
+	/*position: relative;*/
+	/*left:-150px;*/
+}
+.right {
+	float: left;
+	width: 190px;
+	margin-left: -190px;
+	/*position:relative;*/
+	/*right:-190px;*/
+}
+    
+<div class="content">
+	<div class="main"></div>
+</div>
+<div class="left"></div>
+<div class="right"></div>
+```
+
+## 28.介绍使用过的 CSS 预处理器？
+
+- CSS 预处理器基本思想：为 CSS 增加了一些编程的特性（变量、逻辑判断、函数等）
+- 开发者使用这种语言进行进行 Web 页面样式设计，再编译成正常的 CSS 文件使用
+- 使用 CSS 预处理器，可以使 CSS 更加简洁、适应性更强、可读性更佳，无需考虑兼容性
+- 最常用的 CSS 预处理器语言包括：Sass（SCSS）和 LESS
+- 均具有“变量”、“混合”、“嵌套”、“继承”、“颜色混合”五大基本特性
+- `Scss`和`LESS`语法较为严谨，`LESS`要求一定要使用大括号“{}”，`Scss`和`Stylus`可以通过缩进表示层次与嵌套关系
+- `Scss`无全局变量的概念，`LESS`和`Stylus`有类似于其它语言的作用域概念
+- `Sass`是基于`Ruby`语言的，而`LESS`和`Stylus`可以基于`NodeJS` `NPM`下载相应库后进行编译；
