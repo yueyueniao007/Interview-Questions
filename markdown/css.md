@@ -73,7 +73,7 @@
 - 否则，如果元素是根元素，`display`根据下边进行调整
 - 其它情况下`display`的值为指定值。总结起来：绝对定位，浮动，根元素都需要调整`display`
 
-![](img/display.png)
+![](../img/display.png)
 
 ## 7.PNG,GIF,JPG 的区别及如何选
 

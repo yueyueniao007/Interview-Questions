@@ -3,44 +3,44 @@
 
 ## 1.JavaScript变量
 
-![](img/JavaScript变量.gif)
+![](../img/JavaScript变量.gif)
 
 ## 2.JavaScript运算符
 
-![](img/JavaScript运算符.gif)
+![](../img/JavaScript运算符.gif)
 
 ## 3.JavaScript数组
 
-![](img/JavaScript数组.gif)
+![](../img/JavaScript数组.gif)
 
 ## 4.JavaScript流程语句
 
-![](img/JavaScript流程语句.gif)
+![](../img/JavaScript流程语句.gif)
 
 ## 5.JavaScript字符串函数
 
-![](img/JavaScript字符串函数.gif)
+![](../img/JavaScript字符串函数.gif)
 
 ## 6.JavaScript函数基础
 
-![](img/JavaScript函数基础.gif)
+![](../img/JavaScript函数基础.gif)
 
 ## 7.JavaScript基础DOM操作
 
-![](img/JavaScript基础DOM操作1.gif)
+![](../img/JavaScript基础DOM操作1.gif)
 
-![](img/JavaScript基础DOM操作2.gif)
+![](../img/JavaScript基础DOM操作2.gif)
 
 ## 8.JavaScript基础BOM操作
 
-![](img/JavaScript基础BOM操作.jpg)
+![](../img/JavaScript基础BOM操作.jpg)
 
 ## 9.JavaScript正则表达式
 
-![](img/JavaScript正则表达式.gif)
+![](../img/JavaScript正则表达式.gif)
 
 ## 10.面试总结
 
-![](img/面试.png)
+![](../img/面试.png)
 
 
