@@ -29,7 +29,7 @@
 
 ![](../img/JavaScript基础DOM操作1.gif)
 
-![](../img/JavaScript基础DOM操作2.gif)
+![](../img/JavaScript基础DOM操作2.jpg)
 
 ## 8.JavaScript基础BOM操作
 
