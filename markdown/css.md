@@ -430,3 +430,183 @@
 - `Scss`和`LESS`语法较为严谨，`LESS`要求一定要使用大括号“{}”，`Scss`和`Stylus`可以通过缩进表示层次与嵌套关系
 - `Scss`无全局变量的概念，`LESS`和`Stylus`有类似于其它语言的作用域概念
 - `Sass`是基于`Ruby`语言的，而`LESS`和`Stylus`可以基于`NodeJS` `NPM`下载相应库后进行编译；
+
+## 29.什么是外边距重叠？重叠的结果是什么？
+
+> 外边距重叠就是margin-collapse
+
+- 在CSS当中，相邻的两个盒子（可能是兄弟关系也可能是祖先关系）的外边距可以结合成一个单独的外边距。这种合并外边距的方式被称为折叠，并且因而所结合成的外边距称为折叠外边距。
+- **折叠结果遵循下列计算规则**：
+
+	- 两个相邻的外边距都是正数时，折叠结果是它们两者之间较大的值。
+	- 两个相邻的外边距都是负数时，折叠结果是两者绝对值的较大值。
+	- 两个外边距一正一负时，折叠结果是两者的相加的和。
+
+## 30.rgba()和opacity的透明效果有什么不同？
+
+- `rgba()`和`opacity`都能实现透明效果，但最大的不同是`opacity`作用于元素，以及元素内的所有内容的透明度，
+- 而`rgba()`只作用于元素的颜色或其背景色。（设置`rgba`透明的元素的子元素不会继承透明效果！
+
+## 31.CSS优化、提高性能的方法有哪些？
+
+- 多个css合并，尽量减少HTTP请求
+- 将css文件放在页面最上面
+- 移除空的css规则
+- 避免使用CSS表达式
+- 选择器优化嵌套，尽量避免层级过深
+- 充分利用css继承属性，减少代码量
+- 抽象提取公共样式，减少代码量
+- 属性值为0时，不加单位
+- 属性值为小于1的小数时，省略小数点前面的0
+- css雪碧图
+
+## 32.如何垂直居中一个浮动元素？
+
+> 已知元素宽高
+
+```
+#div1{
+	background-color:#6699FF;
+	width:200px;
+	height:200px;
+	position: absolute;        //父元素需要相对定位
+	top: 50%;
+	left: 50%;
+	margin-top:-100px ;   //二分之一的height，width
+	margin-left: -100px;
+}
+```
+> 未知元素宽高
+
+```
+#div1{
+	width: 200px;
+	height: 200px;
+	background-color: #6699FF;
+	margin:auto;
+	position: absolute;        //父元素需要相对定位
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+```
+
+## 33.px和em的区别
+
+- `px`和`em`都是长度单位，区别是，`px`的值是固定的，指定是多少就是多少，计算比较容易。`em`得值不是固定的，并且`em`会继承父级元素的字体大小。
+- 浏览器的默认字体高都是`16px`。所以未经调整的浏览器都符合: `1em=16px`。那么`12px=0.75em`, `10px=0.625em`。
+
+> - px 相对于显示器屏幕分辨率，无法用浏览器字体放大功能
+> - em 值并不是固定的，会继承父级的字体大小： em = 像素值 / 父级font-size
+
+## 35.水平居中的方法
+
+- 元素为行内元素，设置父元素`text-align:center`
+- 如果元素宽度固定，可以设置左右`margin`为`auto`;
+- 绝对定位和移动: `absolute + transform`
+- 使用`flex-box`布局，指定`justify-content`属性为center
+- `display`设置为`tabel-ceil`
+
+## 36.垂直居中的方法
+
+- 将显示方式设置为表格，`display:table-cell`,同时设置`vertial-align：middle`
+- 使用`flex`布局，设置为`align-item：center`
+- 绝对定位中设置`bottom:0,top:0`,并设置`margin:auto`
+- 绝对定位中固定高度时设置`top:50%，margin-top`值为高度一半的负值
+- 文本垂直居中设置`line-height`为`height`值
+
+- 如果是单行文本, line-height 设置成和 height 值
+	
+	```
+	.vertical {
+		height: 100px;
+		line-height: 100px;
+	}
+	```
+    
+
+- 已知高度的块级子元素，采用绝对定位和负边距
+
+	```
+    .container {
+		position: relative;
+    }
+    .vertical {
+		height: 300px;  /*子元素高度*/
+		position: absolute;
+		top:50%;  /*父元素高度50%*/
+		margin-top: -150px; /*自身高度一半*/
+    }
+	```
+    
+
+- 未知高度的块级父子元素居中，模拟表格布局
+- 缺点：IE67不兼容，父级 overflow：hidden 失效
+	
+	```
+	.container {
+		display: table;
+	}
+	.content {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	```
+    
+    
+
+- 新增 inline-block 兄弟元素，设置 vertical-align
+    - 缺点：需要增加额外标签，IE67不兼容
+
+	```
+	.container {
+		height: 100%;/*定义父级高度，作为参考*/
+	}
+	.extra .vertical{
+		display: inline-block;  /*行内块显示*/
+		vertical-align: middle; /*垂直居中*/
+	}
+	.extra {
+		height: 100%; /*设置新增元素高度为100%*/
+	}
+	```
+    
+
+- 绝对定位配合 CSS3 位移
+
+	```
+	.vertical {
+		position: absolute;
+		top:50%;  /*父元素高度50%*/
+		transform:translateY(-50%, -50%);
+	}
+	```
+    
+
+- CSS3弹性盒模型
+
+	```
+	.container {
+		display:flex;
+		justify-content: center; /*子元素水平居中*/
+		align-items: center; /*子元素垂直居中*/
+	}
+	```
+	
+## 37.重绘和回流（重排）是什么，如何避免？
+
+- 重绘：当渲染树中的元素外观（如：颜色）发生改变，不影响布局时，产生重绘
+- 回流：当渲染树中的元素的布局（如：尺寸、位置、隐藏/状态状态）发生改变时，产生重绘回流
+- 注意：JS获取Layout属性值（如：`offsetLeft`、`scrollTop`、`getComputedStyle`等）也会引起回流。因为浏览器需要通过回流计算最新值
+- 回流必将引起重绘，而重绘不一定会引起回流
+
+**如何最小化重绘(repaint)和回流(reflow)：**
+
+- 需要要对元素进行复杂的操作时，可以先隐藏(`display:"none"`)，操作完成后再显示
+- 需要创建多个`DOM`节点时，使用`DocumentFragment`创建完后一次性的加入`document`
+- 缓存`Layout`属性值，如：`var left = elem.offsetLeft;` 这样，多次使用 `left` 只产生一次回流
+- 尽量避免用`table`布局（`table`元素一旦触发回流就会导致table里所有的其它元素回流）
+- 避免使用`css`表达式(`expression`)，因为每次调用都会重新计算值（包括加载页面）
+- 尽量使用 `css` 属性简写，如：用 `border` 代替 `border-width`, `border-style`, `border-color`
+- 批量修改元素样式：`elem.className` 和 `elem.style.cssText` 代替 `elem.style.xxx`
