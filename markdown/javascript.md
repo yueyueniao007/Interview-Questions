@@ -15,7 +15,7 @@
 - 数据封装类对象：Object、Array、Boolean、Number、String
 - 其他对象：Function、Arguments、Math、Date、RegExp、Error
 - ES6新增对象：Symbol、Map、Set、Promises、Proxy、Reflect
-- 
+
 ## 5. 描述浏览器的渲染过程，DOM树和渲染数的区别
 - 浏览器的渲染过程：
     - 解析HTML构建 DOM(DOM树)，并行请求 css/image/js
