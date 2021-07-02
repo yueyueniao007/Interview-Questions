@@ -34,6 +34,15 @@
 - 注意：JS获取Layout属性值（如：offsetLeft、scrollTop、getComputedStyle等）也会引起回流。因为浏览器需要通过回流计算最新值
 - 回流必将引起重绘，而重绘不一定会引起回流
 
+## 7. 如何最小化重绘(repaint)和回流(reflow)？
+- 需要要对元素进行复杂的操作时，可以先隐藏(display:"none")，操作完成后再显示
+- 需要创建多个DOM节点时，使用DocumentFragment创建完后一次性的加入document
+- 缓存Layout属性值，如：var left = elem.offsetLeft; 这样，多次使用 left 只产生一次回流
+- 尽量避免用table布局（table元素一旦触发回流就会导致table里所有的其它元素回流）
+- 避免使用css表达式(expression)，因为每次调用都会重新计算值（包括加载页面）
+- 尽量使用 css 属性简写，如：用 border 代替 border-width, border-style, border-color
+- 批量修改元素样式：elem.className 和 elem.style.cssText 代替 elem.style.xxx
+
 
 
 
