@@ -34,3 +34,4 @@
 - 注意：JS获取Layout属性值（如：offsetLeft、scrollTop、getComputedStyle等）也会引起回流。因为浏览器需要通过回流计算最新值
 - 回流必将引起重绘，而重绘不一定会引起回流
 
+
