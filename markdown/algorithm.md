@@ -1,7 +1,7 @@
 
 ### 1 冒泡排序
 
-```
+```javascript
 let arr = [5, 4, 3, 2, 1]
 function sort(arr) {
 	let temp;
@@ -22,7 +22,7 @@ console.log(sort(arr)) //[1,2,3,4,5]
 
 ### 2 快速排序
 
-```
+```javascript
 let arr = [5, 4, 3, 2, 1]
 function sort(arr) {
 	if (arr.length <= 1) {
