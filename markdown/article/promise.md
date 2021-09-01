@@ -1,6 +1,5 @@
 
-### 1 手写Promise系列
--------------
+## 1 手写Promise系列
 
 [《从小白视角上手Promise、Async/Await和手撕代码](https://mp.weixin.qq.com/s?__biz=MzU2Mjg0NDY5Ng==&mid=2247484686&idx=1&sn=a4e46712b8d688d827f5d63fd50991bb&chksm=fc620079cb15896fa1885b9040c5abec1c8425cdf20f562092e58bc44062a9b36d53702040e0&token=1964890954&lang=zh_CN&scene=21#wechat_redirect)》。
 
@@ -59,8 +58,7 @@ Promise.prototype._finally = function(promiseFunc){
 }  
 ```
 
-### 2 手写Aysnc/Await
----------------
+## 2 手写Aysnc/Await
 
 ```
 function asyncGenertor(genFunc){  
@@ -88,7 +86,7 @@ function asyncGenertor(genFunc){
 }  
 ```
 
-### 3 深拷贝
+## 3 深拷贝
 -----
 
 **深拷贝：拷贝所有的属性值，以及属性地址指向的值的内存空间。**
@@ -169,7 +167,7 @@ function deepCopy(obj){
 }  
 ```
 
-### 4 手写一个单例模式
+## 4 手写一个单例模式
 ----------
 
 单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现方法一般是先判断实例是否存在，如果存在直接返回，如果不存在就先创建再返回。
@@ -196,7 +194,7 @@ const proxy = function(func){
 }  
 ```
 
-### 5 手写封装一个ajax函数
+## 5 手写封装一个ajax函数
 --------------
 
 ```
@@ -244,7 +242,7 @@ function ajax(method,url,params,done){
 }  
 ```
 
-### 6 手写“防抖”和“节流”
+## 6 手写“防抖”和“节流”
 -------------
 
 [一网打尽──他们都在用这些”防抖“和”节流“方法](http://mp.weixin.qq.com/s?__biz=MzU2Mjg0NDY5Ng==&mid=2247484071&idx=1&sn=3acef0bf025ff97bbd2810a79a52e77b&chksm=fc6207d0cb158ec694d3a6c96a801e1b4fdb15a14c6a9ce645ce9d49d7774f95483166cca6ca&scene=21#wechat_redirect)》。
@@ -301,7 +299,7 @@ function debounce(func,delay,immediate){
   }  
 ```
 
-### 7 手写apply、bind、call
+## 7 手写apply、bind、call
 -------------------
 
 #### 7.1 apply
@@ -420,7 +418,7 @@ Function.prototype._call = function (context, ...arr) {
   
 ```
 
-### 8 手写继承
+## 8 手写继承
 ------
 
 #### 8.1 构造函数式继承
