@@ -24,7 +24,7 @@ console.log(sort(arr)) //[1,2,3,4,5]
 
 ```javascript
 let arr = [5, 4, 3, 2, 1]
-function sort(arr) {
+function quickSort(arr) {
 	if (arr.length <= 1) {
 	  return arr;
 	}
