@@ -16,7 +16,7 @@
 - 其他对象：Function、Arguments、Math、Date、RegExp、Error
 - ES6新增对象：Symbol、Map、Set、Promises、Proxy、Reflect
 
-## 5. 描述浏览器的渲染过程，DOM树和渲染数的区别
+## 5. 描述浏览器的渲染过程，DOM树和渲染树的区别
 - 浏览器的渲染过程：
     - 解析HTML构建 DOM(DOM树)，并行请求 css/image/js
     - CSS 文件下载完成，开始构建 CSSOM(CSS树)
@@ -42,6 +42,40 @@
 - 避免使用css表达式(expression)，因为每次调用都会重新计算值（包括加载页面）
 - 尽量使用 css 属性简写，如：用 border 代替 border-width, border-style, border-color
 - 批量修改元素样式：elem.className 和 elem.style.cssText 代替 elem.style.xxx
+
+## 8.防抖和节流
+### 防抖：就是一定时间内，只会执行最后一次任务;
+### 节流：就是一定时间内，只执行一次;
+
+#### 防抖
+
+```
+function debounce() {
+	let timer;
+	return function () {
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			console.log("防抖成功！");
+		}, 500);
+	}
+}
+```
+
+#### 节流
+
+```
+function throttle() {
+	let flag = true;
+	return function () {
+		if (!flag) { return; }
+		flag = false;
+		setTimeout(() => {
+			console.log("节流成功！");
+			flag = true;
+		}, 1000);
+	};
+}
+```
 
 
 
