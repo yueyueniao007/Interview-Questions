@@ -609,3 +609,22 @@
 - 尽量使用 `css` 属性简写，如：用 `border` 代替 `border-width`, `border-style`, `border-color`
 - 批量修改元素样式：`elem.className` 和 `elem.style.cssText` 代替 `elem.style.xxx`
 
+## 38.文本溢出隐藏
+
+#### 单行
+
+```
+overflow:hidden;
+white-space:nowrap;
+text-overflow:ellipsis;
+```
+
+#### 多行
+
+```
+overflow:hidden;
+text-overflow:ellipsis;
+display:-webkit-box;
+-webkit-line-clamp:2;
+-webkit-box-orient:vertical;
+```
