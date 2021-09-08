@@ -251,13 +251,11 @@
 ## 18.用纯CSS创建一个三角形的原理是什么？
 
 ```
-// 把上、左、右三条边隐藏掉（颜色设为 transparent）
-#demo {
-  width: 0;
-  height: 0;
-  border-width: 20px;
-  border-style: solid;
-  border-color: transparent transparent red transparent;
+#demo{
+	width: 0;
+	height: 0;
+	border: 50px solid transparent;
+	border-right: 50px solid blue;
 }
 ```
 
@@ -611,6 +609,3 @@
 - 尽量使用 `css` 属性简写，如：用 `border` 代替 `border-width`, `border-style`, `border-color`
 - 批量修改元素样式：`elem.className` 和 `elem.style.cssText` 代替 `elem.style.xxx`
 
-
-
-1233123

@@ -43,6 +43,32 @@
 - 尽量使用 css 属性简写，如：用 border 代替 border-width, border-style, border-color
 - 批量修改元素样式：elem.className 和 elem.style.cssText 代替 elem.style.xxx
 
+## 8.类型判断
+
+```
+'' == 0            //true
+'   ' == 0         //true
+null == undefined  //true
+null == 0          //false
+undefined == ''    //false
+'false' == false   //false
+NaN == NaN         //false
+NaN == false       //false
+NaN === false      //false
+
+
+var a = {};
+var b = {};
+var c = a;
+
+//引用类型比较的是地址
+
+a == b;            //false
+a === b;           //false
+a == c;            //true
+a === c;           //true
+```
+
 
 
 
