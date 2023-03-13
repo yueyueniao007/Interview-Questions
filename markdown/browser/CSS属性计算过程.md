@@ -16,7 +16,7 @@ p{
 
 没关系，通过此篇文章，能够让你彻底明白什么是 CSS 属性的计算流程。
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-13-060434.png" alt="image-20220813140434032" style="zoom:50%;" />
+<img src="../../img/2022-08-13-060434.png" alt="image-20220813140434032" style="zoom:50%;" />
 
 首先，不知道你有没有考虑过这样的一个问题，假设在 HTML 中有这么一段代码：
 
@@ -28,17 +28,17 @@ p{
 
 上面的代码也非常简单，就是在 body 中有一个 h1 标题而已，该 h1 标题呈现出来的外观是如下：
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-13-060724.png" alt="image-20220813140724136" style="zoom:50%;" />
+<img src="../../img/2022-08-13-060724.png" alt="image-20220813140724136" style="zoom:50%;" />
 
 目前我们没有设置该 h1 的任何样式，但是却能看到该 h1 有一定的默认样式，例如有默认的字体大小、默认的颜色。
 
 那么问题来了，我们这个 h1 元素上面除了有默认字体大小、默认颜色等属性以外，究竟还有哪些属性呢？
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-15-014216.png" alt="image-20220815094215982" style="zoom:30%;" />
+<img src="../../img/2022-08-15-014216.png" alt="image-20220815094215982" style="zoom:30%;" />
 
 答案是**该元素上面会有 CSS 所有的属性。**你可以打开浏览器的开发者面板，选择【元素】，切换到【计算样式】，之后勾选【全部显示】，此时你就能看到在此 h1 上面所有 CSS 属性对应的值。
 
-![image-20220813141516153](https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-13-061516.png)
+![image-20220813141516153](../../img/2022-08-13-061516.png)
 
 换句话说，**我们所书写的任何一个 HTML 元素，实际上都有完整的一整套 CSS 样式**。这一点往往是让初学者比较意外的，因为我们平时在书写 CSS 样式时，往往只会书写必要的部分，例如前面的：
 
@@ -52,7 +52,7 @@ p{
 
 但是注意，我这里强调的是“大概率可能”，难道还有我们“没有设置值，但是不使用默认值”的情况么？
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-15-014459.png" alt="image-20220815094458940" style="zoom:25%;" />
+<img src="../../img/2022-08-15-014459.png" alt="image-20220815094458940" style="zoom:25%;" />
 
 嗯，确实有的，所以我才强调你要了解“CSS 属性的计算过程”。
 
@@ -79,7 +79,7 @@ p{
 
 当然，除了作者样式表，一般浏览器还会存在“用户代理样式表”，简单来讲就是浏览器内置了一套样式表。
 
-![image-20220813143500066](https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-13-063500.png)
+![image-20220813143500066](../../img/2022-08-13-063500.png)
 
 在上面的示例中，作者样式表中设置了 color 属性，而用户代理样式表（浏览器提供的样式表）中设置了诸如 display、margin-block-start、margin-block-end、margin-inline-start、margin-inline-end 等属性对应的值。
 
@@ -107,7 +107,7 @@ p{
 
 那么问题来了，咱们的样式表的源究竟有几种呢？
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-23-100047.png" alt="image-20220823180047075" style="zoom:40%;" />
+<img src="../../img/2022-08-23-100047.png" alt="image-20220823180047075" style="zoom:40%;" />
 
 整体来讲有三种来源：
 
@@ -132,7 +132,7 @@ p{
 }
 ```
 
-![image-20220813144222152](https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-13-064222.png)
+![image-20220813144222152](../../img/2022-08-13-064222.png)
 
 可以明显的看到，作者样式表和用户代理样式表中同时存在的 display 属性的设置，最终作者样式表干掉了用户代理样式表中冲突的属性。这就是第一步，根据不同源的重要性来决定应用哪一个源的样式。
 
@@ -164,7 +164,7 @@ h1 {
 
 很明显，上面的选择器的权重要大于下面的选择器，因此最终标题呈现为 *50px*。
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-16-071546.png" alt="image-20210916151546500" style="zoom: 40%;" />
+<img src="../../img/2021-09-16-071546.png" alt="image-20210916151546500" style="zoom: 40%;" />
 
 可以看到，落败的作者样式在 *Elements>Styles* 中会被划掉。
 
@@ -192,7 +192,7 @@ h1 {
 
 在上面的代码中，同样都是**页面作者样式**，**选择器的权重也相同**，此时位于下面的样式声明会层叠掉上面的那一条样式声明，最终会应用 *20px* 这一条属性值。
 
-![image-20220823183928330](https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-23-103928.png)
+![image-20220823183928330](../../img/2022-08-23-103928.png)
 
 
 
@@ -224,7 +224,7 @@ div {
 
 在上面的代码中，我们针对 div 设置了 color 属性值为红色，而针对 p 元素我们没有声明任何的属性，但是由于 color 是可以继承的，因此 p 元素从最近的 div 身上继承到了 color 属性的值。
 
-![image-20220813145102293](https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-13-065102.png)
+![image-20220813145102293](../../img/2022-08-13-065102.png)
 
 这里有两个点需要同学们注意一下。
 
@@ -247,7 +247,7 @@ div {
 }
 ```
 
-![image-20220813145652726](https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-13-065653.png)
+![image-20220813145652726](../../img/2022-08-13-065653.png)
 
 因为这里并不涉及到选中 p 元素声明 color 值，而是从父元素上面继承到 color 对应的值，因此这里是**谁近就听谁**的，初学者往往会产生混淆，又去比较权重，但是这里根本不会涉及到权重比较，因为压根儿就没有选中到 p 元素。
 
@@ -257,7 +257,7 @@ div {
 
 关于这一点的话，大家可以在 MDN 上面很轻松的查阅到。例如我们以 text-align 为例，如下图所示：
 
-![image-20220813150147885](https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-13-070148.png)
+![image-20220813150147885](../../img/2022-08-13-070148.png)
 
 
 
@@ -269,13 +269,13 @@ div {
 
 如下图所示：
 
-![image-20220813150824752](https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-13-070825.png)
+![image-20220813150824752](../../img/2022-08-13-070825.png)
 
 前面我们也说过，一个 HTML 元素要在浏览器中渲染出来，必须具备所有的 CSS 属性值，但是绝大部分我们是不会去设置的，用户代理样式表里面也不会去设置，也无法从继承拿到，因此最终都是用默认值。
 
 好了，这就是关于 CSS 属性计算过程的所有知识了。
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-14-154655.png" alt="image-20220814234654914" style="zoom:33%;" />
+<img src="../../img/2022-08-14-154655.png" alt="image-20220814234654914" style="zoom:33%;" />
 
 
 
@@ -302,7 +302,7 @@ div {
 
 解答如下：
 
-![image-20220813151941113](https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-13-071941.png)
+![image-20220813151941113](../../img/2022-08-13-071941.png)
 
 实际上原因很简单，因为 a 元素在用户代理样式表中已经设置了 color 属性对应的值，因此会应用此声明值。而在 p 元素中无论是作者样式表还是用户代理样式表，都没有对此属性进行声明，然而由于 color 属性是可以继承的，因此最终 p 元素的 color 属性值通过继承来自于父元素。
 

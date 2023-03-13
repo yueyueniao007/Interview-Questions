@@ -4,17 +4,17 @@
 
 但是一说到 CSS 包含块，有的小伙伴就懵圈了，什么是包含块？好像从来没有听说过这玩意儿。
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-14-142005.png" alt="image-20220814222004395" style="zoom: 20%;" />
+<img src="../../img/2022-08-14-142005.png" alt="image-20220814222004395" style="zoom: 20%;" />
 
 好吧，如果你对包含块的知识一无所知，那么系好安全带，咱们准备出发了。
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-13-060434.png" alt="image-20220813140434032" style="zoom:50%;" />
+<img src="../../img/2022-08-13-060434.png" alt="image-20220813140434032" style="zoom:50%;" />
 
 包含块英语全称为**containing block**，实际上平时你在书写 CSS 时，大多数情况下你是感受不到它的存在，因此你不知道这个知识点也是一件很正常的事情。但是这玩意儿是确确实实存在的，在 CSS 规范中也是明确书写了的：
 
 *https://drafts.csswg.org/css2/#containing-block-details*
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-14-142459.png" alt="image-20220814222458695" style="zoom:50%;" />
+<img src="../../img/2022-08-14-142459.png" alt="image-20220814222458695" style="zoom:50%;" />
 
 并且，如果你不了解它的运作机制，有时就会出现一些你认为的莫名其妙的现象。
 
@@ -24,7 +24,7 @@
 
 来吧，少年，让我们从最简单的 case 开始看。
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-14-143153.png" alt="image-20220814223152726" style="zoom: 50%;" />
+<img src="../../img/2022-08-14-143153.png" alt="image-20220814223152726" style="zoom: 50%;" />
 
 ```html
 <body>
@@ -49,7 +49,7 @@
 
 请仔细阅读上面的代码，然后你认为 div.item 这个盒子的宽高是多少？
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-14-143451.png" alt="image-20220814223451349" style="zoom: 33%;" />
+<img src="../../img/2022-08-14-143451.png" alt="image-20220814223451349" style="zoom: 33%;" />
 
 相信你能够很自信的回答这个简单的问题，div.item 盒子的 width 为 250px，height 为 150px。
 
@@ -110,7 +110,7 @@
 
 公布正确答案：
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-14-153548.png" alt="image-20220814233548188" style="zoom: 33%;" />
+<img src="../../img/2022-08-14-153548.png" alt="image-20220814233548188" style="zoom: 33%;" />
 
 怎么样？有没有和你所想象的对上？
 
@@ -163,13 +163,13 @@
 
 我们对于上面的代码只新增了一条声明，那就是 transform: rotate(0deg)，此时的渲染效果却发生了改变，如下图所示：
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-14-154347.png" alt="image-20220814234347149" style="zoom:33%;" />
+<img src="../../img/2022-08-14-154347.png" alt="image-20220814234347149" style="zoom:33%;" />
 
 可以看到，此时对于 div.item2 来讲，包含块就变成了 div.item。
 
 好了，到这里，关于包含块的知识就基本讲完了。
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-14-154655.png" alt="image-20220814234654914" style="zoom:33%;" />
+<img src="../../img/2022-08-14-154655.png" alt="image-20220814234654914" style="zoom:33%;" />
 
 我们再把 CSS 规范中所举的例子来看一下。
 
@@ -279,7 +279,7 @@
 
 好了，这就是 CSS 规范中所举的例子。如果你全都能看明白，以后你还能跟别人说你是看过这一块知识对应的 CSS 规范的人。
 
-<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-15-013519.png" alt="image-20220815093518833" style="zoom:33%;" />
+<img src="../../img/2022-08-15-013519.png" alt="image-20220815093518833" style="zoom:33%;" />
 
 另外，关于包含块的知识，在 MDN 上除了解说了什么是包含块以外，也举出了很多简单易懂的示例。
 
